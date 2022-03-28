@@ -1,0 +1,202 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Library API",
+    "description": "With this API you can create and safe your books",
+    "contact": {
+      "email": "renan.tg57@gmail.com"
+    }
+  },
+  "host": "localhost:3333",
+  "basePath": "/livros",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/": {
+      "post": {
+        "tags": [
+          "Library"
+        ],
+        "summary": "Create a book",
+        "description": "This route will be responsible for create a book in database",
+        "parameters": [
+          {
+            "name": "book",
+            "in": "body",
+            "description": "Book information",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Book"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Library"
+        ],
+        "summary": "Get all books",
+        "description": "Get all books",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/{id}": {
+      "get": {
+        "tags": [
+          "Library"
+        ],
+        "summary": "Search for a book with your ID",
+        "description": "Search for a book with your ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "User ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Library"
+        ],
+        "summary": "Update a book",
+        "description": "Update data from a book using your ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "User ID"
+          },
+          {
+            "name": "book",
+            "in": "body",
+            "description": "Book information for update",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Book"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Library"
+        ],
+        "summary": "Delete a book",
+        "description": "Delete a book in database",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "User ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/paginate/{pages}": {
+      "get": {
+        "tags": [
+          "Library"
+        ],
+        "summary": "Get a limited number of books",
+        "description": "Get a limited number of books",
+        "parameters": [
+          {
+            "name": "pages",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Number of elements"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Book": {
+      "type": "object",
+      "properties": {
+        "nome": {
+          "type": "string",
+          "example": "Cinderella"
+        },
+        "autor": {
+          "type": "string",
+          "example": "Patrícia Amorim"
+        },
+        "editora": {
+          "type": "string",
+          "example": "Vale das letras"
+        },
+        "preco": {
+          "type": "number",
+          "example": 20.93
+        },
+        "descricao": {
+          "type": "string",
+          "example": "A Editora Vale das Letras traz para você uma forma fácil e divertida de incentivar suas crianças a praticar a língua inglesa!"
+        },
+        "categoria": {
+          "type": "string",
+          "example": "Infantil"
+        },
+        "dataPublicacao": {
+          "type": "string",
+          "example": "2019-03-13"
+        },
+        "idioma": {
+          "type": "string",
+          "example": "Português"
+        },
+        "numeroDePaginas": {
+          "type": "number",
+          "example": 36
+        }
+      }
+    }
+  }
+}
