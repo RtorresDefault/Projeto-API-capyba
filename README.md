@@ -1,4 +1,4 @@
-# Projeto-API ✨
+# Projeto-API-Capyba
 O projeto se refere a criação de uma API com CRUD, acessos de usuário e controle de autenticação via JWT
 
 ## A api deve receber dados de uma biblioteca 📚:
